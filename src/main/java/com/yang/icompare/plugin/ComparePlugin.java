@@ -1,4 +1,4 @@
-package com.yang.imgcompare.plugin;
+package com.yang.icompare.plugin;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;

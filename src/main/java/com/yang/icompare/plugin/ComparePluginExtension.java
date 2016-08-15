@@ -1,4 +1,4 @@
-package com.yang.imgcompare.plugin;
+package com.yang.icompare.plugin;
 
 public class ComparePluginExtension {
     private String firstCompareCandidateDir = "hello";

@@ -1,9 +1,5 @@
 apply plugin: 'java'
-
-dependencies {
-    compile gradleApi()
-}
-
+apply plugin: 'maven-publish'
 apply plugin: 'maven'
 
 repositories {
@@ -12,16 +8,30 @@ repositories {
 }
 
 dependencies {
+    compile gradleApi()
+    compile 'com.yang.icompare:img-compare:1.0-SNAPSHOT'
     testCompile 'junit:junit:4.12'
 }
 
-group = "com.yang.imgcompare"
+group = "com.yang.icompare"
 version = '1.0-SNAPSHOT'
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId "$group"
+            artifactId 'img-compare-gradle-plugin'
+            version "$version"
+            from components.java
+        }
+
+    }
+    repositories{
+        mavenLocal()
+    }
+}
 uploadArchives {
     repositories {
-        mavenDeployer {
-            repository(url: uri('../repo'))
-        }
+        mavenLocal()
     }
 }
