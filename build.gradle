@@ -1,0 +1,27 @@
+apply plugin: 'java'
+
+dependencies {
+    compile gradleApi()
+}
+
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+}
+
+group = "com.yang.imgcompare"
+version = '1.0-SNAPSHOT'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+        }
+    }
+}
